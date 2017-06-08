@@ -1,19 +1,21 @@
 function merge(arr1, arr2) {
 	var newArray = [];
 	var firstValue;
-	while ((arr1.length + arr2.length) > 0) {
+	var arr1pointer = 0
+	var arr2pointer = 0
+	while (arr1pointer + arr2pointer < arr1.length+arr2.length - 2 ) {
 		console.log(newArray);
 		if (arr1.length === 0) {
-			firstValue = arr2.shift();
+			firstValue = arr2[arr2pointer++];
 			newArray.push(firstValue);
 		} else if (arr2.length === 0 ) {
-			firstValue = arr1.shift();
+			firstValue = arr1[arr1pointer++];
 			newArray.push(firstValue);
 		} else if (arr1[0] <= arr2[0]) {
-			 firstValue = arr1.shift();
+			firstValue = arr1[arr1pointer++];
 			newArray.push(firstValue);
 		} else {
-			firstValue = arr2.shift();
+			firstValue = arr2[arr2pointer++];
 			newArray.push(firstValue);
 		}
 	}
